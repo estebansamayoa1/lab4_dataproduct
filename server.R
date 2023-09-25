@@ -10,7 +10,6 @@ function(input, output, session) {
   
   
   output$data_table <- DT::renderDataTable({
-    print("Rendering data")
     datatable(my_data, 
               options = list(
                 searching = TRUE,     
@@ -65,12 +64,12 @@ function(input, output, session) {
       return(NULL)
     } else {
       info_text <- paste(
-        "Title:", movie$Title[1], "<br>",
+        "Titulo:", movie$Title[1], "<br>",
         "Director:", paste0(movie$Director[1]), "<br>",
-        "Duration:", paste0(movie$Runtime[1], " minutes"), "<br>",
+        "Duración:", paste0(movie$Runtime[1], " minutos"), "<br>",
         "Rating:", paste0(movie$Rating[1]), "<br>",
-        "Stars:", paste0(movie$Stars[1]), "<br>",
-        "Genre:", paste0(movie$Genre[1])
+        "Cast:", paste0(movie$Stars[1]), "<br>",
+        "Género:", paste0(movie$Genre[1])
       )
       
       return(HTML(info_text))
@@ -83,15 +82,14 @@ function(input, output, session) {
     if (!is.null(info)) {
       infoBox(
         info,
-        "Movie Information",
+        "Pelicula",
         icon = icon("film"),
         color = "blue", 
         fill = TRUE
       )
     } else {
       infoBox(
-        "Movie not found",
-        "Movie Information",
+        "Pelicula no encontrada",
         icon = icon("film"),
         color = "teal",
         fill = TRUE
